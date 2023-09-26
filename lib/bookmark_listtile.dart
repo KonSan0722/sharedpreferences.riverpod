@@ -20,16 +20,13 @@ class BookMarkListTile extends ConsumerWidget {
     return ListTile(
       title: Text(
         "$num:  ${model.text}",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.black),
       ),
       leading: const Icon(
         Icons.comment,
-        color: Colors.white,
+        color: Colors.black,
       ),
-      onTap: () {
-        controller.text = model.text;
-        Navigator.pop(context);
-      },
+      onTap: () {},
     );
   }
 }

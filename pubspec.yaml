@@ -19,6 +19,7 @@ dependencies:
   shared_preferences:
   cupertino_icons: ^1.0.2
   flutter_slidable:
+  status_alert:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -10,15 +10,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'bookmark_listtile.dart';
 
 class SharedListView extends HookConsumerWidget {
-  SharedListView({super.key});
-
+  SharedListView({super.key, required this.controller});
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     final height = size.height;
     final width = size.width;
     final modelState = ref.watch(modelsNotifierProvider);
-    final controller = useTextEditingController();
     final list = ListView.builder(
         itemCount: modelState.length,
         itemBuilder: (context, index) {
@@ -28,7 +27,7 @@ class SharedListView extends HookConsumerWidget {
               children: [
                 SlidableAction(
                   onPressed: (_) {},
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.red,
                   foregroundColor: Colors.black,
                   icon: Icons.delete,
                   label: 'Delete',
