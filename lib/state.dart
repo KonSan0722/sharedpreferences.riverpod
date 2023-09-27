@@ -10,7 +10,10 @@ class ModelsNotifier extends _$ModelsNotifier {
   }
 
   void input(value) {
-    state.add(value);
+    final oldState = state;
+    final newState = List.of(oldState);
+    newState.add(value);
+    state = newState;
   }
 
   void remove(value) {

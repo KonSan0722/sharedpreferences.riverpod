@@ -26,7 +26,10 @@ class SharedListView extends HookConsumerWidget {
               motion: const ScrollMotion(),
               children: [
                 SlidableAction(
-                  onPressed: (_) {},
+                  onPressed: (_) {
+                    final notifier = ref.read(modelsNotifierProvider.notifier);
+                    notifier.remove(index);
+                  },
                   backgroundColor: Colors.red,
                   foregroundColor: Colors.black,
                   icon: Icons.delete,
