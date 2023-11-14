@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_sharedpreferences_sample/shared_model_state.dart';
 import 'package:flutter_sharedpreferences_sample/state.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -10,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'bookmark_listtile.dart';
 
 class SharedListView extends HookConsumerWidget {
-  SharedListView({super.key, required this.controller});
+  const SharedListView({super.key, required this.controller});
   final TextEditingController controller;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,6 +15,7 @@ class SharedListView extends HookConsumerWidget {
     final height = size.height;
     final width = size.width;
     final modelState = ref.watch(modelsNotifierProvider);
+    final model = ref.watch(sharedModelNotifierProvider);
     final list = ListView.builder(
         itemCount: modelState.length,
         itemBuilder: (context, index) {
